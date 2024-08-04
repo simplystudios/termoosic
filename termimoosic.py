@@ -6,18 +6,16 @@ import time
 import inquirer
 import re
 
-#  ______                                                                
-# /\__  _\                                                  __           
-# \/_/\ \/    __   _ __    ___ ___     ___     ___     ____/\_\    ___   
-#    \ \ \  /'__`\/\`'__\/' __` __`\  / __`\  / __`\  /',__\/\ \  /'___\ 
-#     \ \ \/\  __/\ \ \/ /\ \/\ \/\ \/\ \L\ \/\ \L\ \/\__, `\ \ \/\ \__/ 
+#  ______
+# /\__  _\                                                  __
+# \/_/\ \/    __   _ __    ___ ___     ___     ___     ____/\_\    ___
+#    \ \ \  /'__`\/\`'__\/' __` __`\  / __`\  / __`\  /',__\/\ \  /'___\
+#     \ \ \/\  __/\ \ \/ /\ \/\ \/\ \/\ \L\ \/\ \L\ \/\__, `\ \ \/\ \__/
 #      \ \_\ \____\\ \_\ \ \_\ \_\ \_\ \____/\ \____/\/\____/\ \_\ \____\
 #       \/_/\/____/ \/_/  \/_/\/_/\/_/\/___/  \/___/  \/___/  \/_/\/____/ v 1.0
 
 # Made by ansh wadhwa
 # open source under gnu 3.0
-                                                                       
-                                                                       
 
 
 def homepage():
@@ -25,7 +23,7 @@ def homepage():
     print(f.renderText("Termoosic"))
     print("'THE ONLY TERMINAL MOOSIC PLAYER/DOWNLOADER YOU WILL EVER NEED'\n")
 
-    list = ["Music Download", "Music Player", "Exit"]
+    list = ["Music Download", "Music Player","About", "Exit"]
     questions = [
         inquirer.List("size", message="Choose A Function", choices=list)
     ]
@@ -54,6 +52,22 @@ def printProgressBar(iteration, total, prefix='', suffix='', decimals=1, length=
 
 def sanitize_filename(filename):
     return re.sub(r'[^a-zA-Z0-9_\-\.]', '_', filename)
+
+def aboutcred():
+    f = Figlet(font="larry3d")
+    print(f.renderText("Credits"))
+    print("Developer/Creator :- Ansh Wadhwa")
+    time.sleep(2)
+    print("We really thank these libraries and developers for their open source contributions")
+    time.sleep(1)
+    print("Pyfiglet & Figlet")
+    print("Inquirer")
+    time.sleep(1)
+    print("greenstick for progress bar")
+    time.sleep(1)
+    print("stackoverflow")
+    time.sleep(4)
+    print("chatgpt for helping me make cool shit")
 
 def downloadmusic():
     print("Type a song name to search or type 'exit' to exit the downloader")
@@ -199,6 +213,8 @@ def main():
             downloadmusic()
         elif choice == "Music Player":
             musicplayer()
+        elif choice == "About":
+            aboutcred()
         elif choice == "Exit":
             break
 
